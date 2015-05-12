@@ -21,9 +21,10 @@
   sudo: yes
 
 - name: nginx enable
-  shell: >
-    ngxensite {{ item.site_name|default(item.name) }}
-    creates=/etc/nginx/sites-enabled/{{ item.site_name|default(item.name) }}
+  file: >
+    src=/etc/nginx/sites-available/{{ item.site_name|default(item.name) }}
+    dest=/etc/nginx/sites-enabled/{{ item.site_name|default(item.name) }}
+    state=link
   notify:
     - nginx restart
   with_items: elao_projects
