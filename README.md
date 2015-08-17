@@ -16,7 +16,7 @@ Role Variables
     elao_projects:    # Array of projects
       -
         name:           foo         # Project name
-        index:          app         # Project index (symfony type only)
+        index:          [app]       # Project index (symfony type only)
         type:           symfony     # Project type (php|silex|symfony|www|proxy)
         address:        "127.0.0.1" # Network address to listen (Web server configuration)
         port:           80          # Port to listen (Web server configuration)
